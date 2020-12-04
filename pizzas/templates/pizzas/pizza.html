@@ -1,0 +1,29 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+<p>Pizza type: {{pizza}}</p>
+<ul>
+    <p>
+        <a href="{% url 'pizzas:new_comment' pizza.id %}">Add a New Comment</a>
+    </p>
+
+    {% for c in comments %}
+        <li>
+            <p> {{Comment.author }}</p>
+            <p>{{ c.date_posted|date:'M d, Y H:i' }}</p>
+            <p>{{ c.text|linebreaks }}</p>
+            <p>
+                <a href="{% url 'pizzas:edit_comment' comment.id %}">Edit Comment</a>
+            </p>
+
+        </li>
+  
+    {% empty %}
+        <li>There are no comments for this pizza yet.</li>
+    {% endfor %}
+
+
+</ul>
+
+{% endblock content %} 
+
