@@ -21,7 +21,7 @@ def pizza(request, pizza_id):
     toppings = pizza.topping_set.order_by('-text')
     comments = pizza.comment_set.order_by('-date_posted')
 
-    context = {'pizza':pizza, 'toppings':toppings}
+    context = {'pizza':pizza, 'comments':comments, 'toppings':toppings}
     return render(request, 'pizzas/pizza.html', context)
 
 @login_required
