@@ -1,10 +1,11 @@
 {% extends "pizzas/base.html" %}
-
-{% block content %}
-<p>Gouthem's Pizzeria</p>
-
-<p>>Welcome to Gouthem's Pizzeria, we make the best pizzas in the DFW area! Feel free to place an order online, or come into our store
-    located in Dallas. We look forward to deliviering you quality slices.
-</p>
-
-{% endblock content %}
+{% block page_header %}
+<div class="jumbotron">
+    <h1 class="display-3">Gouthem's Pizzeria</h1>
+    <p class="lead">>Welcome to Gouthem's Pizzeria, we make the best pizzas in the DFW area! Feel free to place an order online, or come into our store
+        located in Dallas. We look forward to deliviering you quality slices.</p>
+    
+    <a class="btn btn-lg btn-primary" href="{% url 'pizzas:pizzas' %}"
+        role="button">Pizzas</a> 
+</div>
+{% endblock page_header %}

@@ -12,7 +12,10 @@ class Pizza(models.Model):
 class Topping(models.Model):
     text = models.CharField(max_length=200)
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="topping", default='pepperoni.jpeg')
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = 'toppings'
 
 
     def __str__(self):

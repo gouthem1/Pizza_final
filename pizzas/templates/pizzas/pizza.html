@@ -6,9 +6,10 @@
     <p>
         <a href="{% url 'pizzas:new_comment' pizza.id %}">Add a New Comment</a>
     </p>
+<p>Toppings offered:</p>
     {% for topping in toppings %}
     <li>
-        <img>"{{ topping.image.url }}"</img>
+        <p>"{{ topping.text }}"</p>
        
     </li>
     {% endfor %}
