@@ -11,14 +11,14 @@ def index(request):
     return render(request, 'pizzas/index.html')
 
 def pizzas(request):   
-    pizzas = Pizza.objects.order_by('name')
+    pizzas = Pizza.objects.order_by('text')
 
     context = {'pizzas':pizzas}
     return render(request, 'pizzas/pizzas.html', context)
 
 def pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
-    toppings = pizza.topping_set.order_by('-name')
+    toppings = pizza.topping_set.order_by('-text')
     comments = pizza.comment_set.order_by('-date_posted')
 
     context = {'pizza':pizza, 'toppings':toppings}
